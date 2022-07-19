@@ -1,0 +1,141 @@
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Urotaxi</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+   <link href="css/request.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              aspas cabs
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about"> About </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#services"> Services </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#news"> News</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Login</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+<script type="text/javascript" src="request.js"></script>
+    <section class="slider_section" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7 ">
+          </div>
+		  <br>
+			<div class="card" onload="load()">
+                <div class="card-body">
+                 <center><h2 class="card-title">Driver request</h2></center><br>
+                  <div class="table-responsive" id="myform"><table class="table table-hover">
+                      <thead>
+					    <tr>
+							<td>Source:</td>
+							<td><input type="text" id="Source"></td>
+						</tr>
+						<tr>
+							<td>Destination:</td>
+							<td><input type="text" id="Destination">
+						</tr>
+						<tr>
+							<td>Customer name:</td>
+							<td><input type="text" id="Customer_name"></td>
+						</tr>
+						<tr>
+							<td>Customer contact:</td>
+							<td><input type="text" id="Customer_contact"></td>
+						</tr>
+							<td><label id ="Accept" name="Accept"></label>
+							    <label id ="Decline" name="Decline"></label>
+							</td>
+						<tr>
+							<input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+                    </table>
+						<table id="myTableData" class="myTableData">
+							<tr>
+								<td><b>Source<b></td>
+								<td><b>Destination</b></td>
+								<td><b>Customer name</b></td>
+								<td><b>Customer contact</b></td>
+								<td>&nbsp</td>
+								<td>&nbsp</td>
+							</tr>
+						</table>
+                  </div>
+                </div>
+              </div>
+           
+            
+            </div>
+          </div>
+  </div>
+ </html>
