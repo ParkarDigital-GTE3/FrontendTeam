@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="js/jquery-3.4.1.min.js"></script>
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Aaspas cabs</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/integration/registration.js"></script>
+  
+   <style>
+  .input[type=text], select {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  alignment:middle;
+}
+
+  </style>
+  
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              ASpas cabs
+            </span>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="HomePage.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link" href="LoginPage.html">login</a>
+				  
+              
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+   
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+      <!--   <h2>
+          Registration
+        </h2> -->
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          <div class="contact_form">
+            <h4>
+              Registration Details
+              </h4>
+              <form name="myForm" onsubmit="registration()" method="post">
+			  
+			  <select id ="user" name="user" required>
+                <option value="">Select User Type</option>
+                <option value="Customer" id="Customer">Customer</option>
+                <option value="Driver" id="Driver">Driver</option>
+                </select>
+			  
+			  <input type="name" name="fname" id="fname" placeholder="Enter Full Name" required onfocusout="username()" >
+                <div class="phone_input">
+                <span style="color:red" id="fnameErrorMsg" name = "fnameErrorMsg"></span>
+                </div>
+				
+				 <input type="text" name="email" id="email" placeholder="Enter mail" required onfocusout="usermail()" >
+                <div class="phone_input">
+                <span style="color:red" id="emailErrorMsg" name = "emailErrorMsg"></span>
+                </div>
+				
+				<input type="password" name="pass" id="pass" placeholder="Enter password" required onfocusout="userpass()" >
+                <div class="phone_input">
+                <span style="color:red" id="passErrorMsg" name = "passErrorMsg"></span>
+                </div>
+				
+				<input type="password" name="cpass" id="cpass" placeholder="Enter confirm password" required onfocusout="usercpass()" >
+                <div class="phone_input">
+                <span style="color:red" id="cpassErrorMsg" name = "cpassErrorMsg"></span>
+                </div>
+                
+                <input type="phone" id="fphone"  name="fphone" placeholder="Enter Phone Number" required onfocusout="userPhone()">
+                <div class="phone_input">
+                <span style="color:red" id="phoneErrorMsg" name = "phoneErrorMsg"></span>
+                </div>
+				
+			
+                <input type="text" name="dob" id="dob" required placeholder="enter D.o.B. in dd/MM/yyyy format" required onfocusout="ValidateDOB()" >
+                <div class="btm_input">
+                <span style="color:red" id="dobErrorMsg" name="dobErrorMsg"></span>
+                </div>
+                
+				<select id = "Gender" name="Gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male" id="male">Male</option>
+                    <option value="female" id="female">Female</option>
+                    <option value="other" id="other">Other</option>
+                </select>
+				
+				<a><button id ="otp" onfocusout="generateotp()">Send Otp</button></a>
+				
+				
+				<input type="text" name="votp" id="votp" name="votp" placeholder="Enter otp" required onfocusout="verifyotp()">
+                <div class="verifyOtp_input">
+				<span style="color:red" id="verifyErrorMsg" name = "verifyErrorMsg"></span>
+				</div>
+				
+               <CENTER> <button class="btn btn-warning"  type="submit"  name="submit" id='button-send'>Register</button>
+				
+              </form>
+			  
+           </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+  </section>
+
+ 
+
+    <!-- end slider section -->
+  </div>
+  
+ 
+
+    </section>
+    <!-- end slider section -->
+  </div>
+  <script>
+    
+
+ 
+
+    function userPhone(fphone){ 
+    
+    if (/^\d{10}$/.test(myForm.fphone.value)){
+            //alert("Phone number should be of 10 digit");
+            
+            document.getElementById('phoneErrorMsg').innerHTML="" ;
+            return (true)
+        }
+        else{
+            document.getElementById('phoneErrorMsg').innerHTML="Invalid Phone no.";
+            return (false)
+        }
+        }
+		
+		function userPhone(fphone){ 
+    
+    if (/^\d{10}$/.test(myForm.fphone.value)){
+            //alert("Registration number should be of 10 digit");
+            
+            document.getElementById('phoneErrorMsg').innerHTML="" ;
+            return (true)
+        }
+        else{
+            document.getElementById('phoneErrorMsg').innerHTML="Invalid Phone Number.";
+            return (false)
+        }
+        }
+		
+		function userPhone(fphone){ 
+    
+    if (/^\d{10}$/.test(myForm.fphone.value)){
+            //alert("Phone number should be of 10 digit");
+            
+            document.getElementById('phoneErrorMsg').innerHTML="" ;
+            return (true)
+        }
+        else{
+            document.getElementById('phoneErrorMsg').innerHTML="Invalid Phone no.";
+            return (false)
+        }
+        }
+		
+		
+	function usermail(email) {
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.email.value))
+	  {
+		document.getElementById('emailErrorMsg').innerHTML="";
+		return (true)
+	  }
+	  else{
+		document.getElementById('emailErrorMsg').innerHTML="invalid email" ;
+		return (false)
+	}
+	}
+
+ 
+//DONE phone no
+
+ function userpass(){
+	console.log("called js function");
+        let password = document.forms["myForm"]["pass"].value;
+        if (password.length<6){
+            //alert("Password should be atleast 6 characters long");
+            document.getElementById('passErrorMsg').innerHTML="required more than 6 character*" ;
+            return (false)
+        }
+		else{
+			document.getElementById('passErrorMsg').innerHTML="";
+			return (true)
+        }
+		}
+		
+		
+	 function usercpass(){
+	console.log("called js function");
+        let password = document.forms["myForm"]["pass"].value;
+        
+
+		let cpassword = document.forms["myForm"]["cpass"].value;
+        if (cpassword != password){
+            //alert("Password do not match");
+            document.getElementById('cpassErrorMsg').innerHTML="confirm password do not match*" ;
+            return (false)
+        }
+		else{
+			document.getElementById('cpassErrorMsg').innerHTML="";
+			return (true)
+        }
+		}
+	
+		
+		function username(fname){
+		if (/^[A-Za-z]+([\ A-Za-z]+)*$/.test(myForm.fname.value)){
+           
+            
+            document.getElementById('fnameErrorMsg').innerHTML="" ;
+            return (true)
+        }
+        else{
+            document.getElementById('fnameErrorMsg').innerHTML="Invalid Name- no numbers or symbols";
+            return (false)
+        }
+        }
+		
+		function ValidateDOB() {
+        var dobErrorMsg = document.getElementById("dobErrorMsg");
+ 
+        //Get the date from the TextBox.
+        var dateString = document.getElementById("dob").value;
+        var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+ 
+        //Check whether valid dd/MM/yyyy Date Format.
+        if (regex.test(dateString)) {
+            var parts = dateString.split("/");
+            var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+            var dtCurrent = new Date();
+            dobErrorMsg.innerHTML = "Eligibility 18 years ONLY."
+            if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+                return false;
+            }
+ 
+            if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
+ 
+                //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
+                if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+                    return false;
+                }
+                if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+                    //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
+                    if (dtCurrent.getDate() < dtDOB.getDate()) {
+                        return false;
+                    }
+                }
+            }
+            dobErrorMsg.innerHTML = "";
+            return true;
+        } else {
+            dobErrorMsg.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
+            return false;
+        }
+    }
+	
+	function generateotp(){
+
+    var role = document.getElementById("user").value;
+    var email = document.getElementById("email").value;
+    var otp = document.getElementById("otp").value;
+	
+	var generate =Math.floor(Math.random()*(9999-1000+1))+1000;
+	console.log(generate);
+	sessionStorage.setItem("OTP",generate);
+
+  var OtpData ={
+      "email" : email,
+      "otp" : generate,
+      "role" : role
+    }
+
+    console.log("Otp Data - ",OtpData)
+  
+    if(role == "Customer")
+    {
+    $.ajax({
+          type:"POST",
+          contentType: "application/json",
+          url: "http://localhost:8082/register/sendEmailOtp",
+          data: JSON.stringify(OtpData),
+          dataType:"json",
+
+          success: function(result) {
+              if(result.status == "200"){
+                  console.log(result.responseText)
+              }
+            },
+            error:function(result){
+                console.log(result.responseText)
+            }
+          })
+        }else{
+          $.ajax({
+          type:"POST",
+          contentType: "application/json",
+          url: "http://localhost:8083/register/sendEmailOtp",
+          data: JSON.stringify(OtpData),
+          dataType:"json",
+
+          success: function(result) {
+              if(result.status == "200"){
+                  console.log(result.responseText)
+              }
+            },
+            error:function(result){
+                console.log(result.responseText)
+            }
+          })
+        }
+	
+	}
+	
+	function verifyotp(){
+
+	console.log("print")
+	let otp = sessionStorage.getItem("OTP");
+	console.log(otp);
+	let verify = document.forms["myForm"]["votp"].value;
+	console.log(verify);
+	if(verify!=otp){
+	document.getElementById('verifyErrorMsg').innerHTML="plz enter valid otp";
+	return (false)
+	}
+	else{
+	document.getElementById('verifyErrorMsg').innerHTML="";
+	return (true)
+	}
+	}
+	
+	
+		
+		function validate(){
+		const name=username();
+		const reg=userPhone();
+		const emaill=usermail();
+		const ps=userpass();
+		const cps=usercpass();
+		
+		const dobb=ValidateDOB();
+		const vot=verifyotp();
+		
+		
+		return name && reg && emaill && ps && cps  && dobb && vot;
+		}
+</script>
+
+  
+        
+
+  </section>
+
+  
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+       
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 2
+        }
+      }
+	  
+    });
+	
+  </script>
+ 
+
+</body>
+
+</html>

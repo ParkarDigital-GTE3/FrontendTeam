@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>ASPAS CABS</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  
+  <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px ;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+tr:nth-child(even) {
+  background-color: #F8EFE4;
+}
+tr:hover {background-color: #ddd;}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+</head>
+
+<body class="sub_page" onload="TripCompleted()">
+
+  <script>
+    function TripCompleted() {
+      var b_id =  {
+      booking_id : sessionStorage.getItem("b_id"),
+    }
+        $.ajax({
+        type:"POST",
+        contentType: "application/json",
+        url:"http://localhost:8082/login/customer/viewTrip",
+        data: JSON.stringify(b_id),
+        dataType: "json",
+        headers:{
+            Accept: "*/*",
+            Authorization: 'Bearer ' + sessionStorage.getItem("token") 
+        },
+        success: function(result){
+            console.log(result.status)
+            if(result.status == "200"){
+              $('#dname').val(result.trip.driverName);
+              $('#demail').val(result.trip.driverEmail);
+              $('#vno').val(result.trip.cabRegistrationNo);
+              $('#src').val(result.trip.source);
+              $('#dest').val(result.trip.destination);
+              $('#date').val(result.trip.tripDate);
+              $('#rate').val(result.trip.ratesPerKm);
+              $('#dist').val(result.trip.totalDistance);
+              $('#fare').val(result.trip.totalFare);
+                }
+            }
+    })
+    }
+
+    
+  </script>
+  
+   
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container" >
+        <h2>
+		Trip Details
+        </h2>
+      </div>
+	  
+	  
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+				
+                <table id="customer_trip">
+                    <tbody>
+					<tr>
+                            <td>Driver Name</td>
+                            <td>:</td>
+                            <td><input type="" name="dname" id="dname" disabled></td>
+                        
+						</tr>
+						<tr>
+                            <td>Driver Email</td>
+                            <td>:</td>
+                            <td><input type="" name="demail" id="demail" disabled></td>
+                        
+						</tr>
+					
+						<tr>
+                            <td>Vehicle Number</td>
+                            <td>:</td>
+                            <td><input type="" name="vno" id="vno" disabled></td>
+                        
+						</tr>
+					<tr>
+                            <td>Source</td>
+                            <td>:</td>
+                            <td><input type="" name="src" id="src" disabled></td>
+                        
+						</tr>
+					<tr>
+                            <td>Destination</td>
+                            <td>:</td>
+                            <td><input type="" name="dest" id="dest" disabled></td>
+                        
+						</tr>
+						<tr>
+                            <td>Date</td>
+                            <td>:</td>
+                            <td><input type="" name="date" id="date" disabled></td>
+                        
+                        </tr>
+                        
+                        <tr>
+                            <td>Rate/KM</td>
+                            <td>:</td>
+                            <td><input type="" name="rate" id="rate" disabled></td>
+                        
+                        </tr>
+						<tr>
+                            <td>Total Distance</td>
+                            <td>:</td>
+                            <td><input type="" name="dist" id="dist" disabled></td>
+                        
+                        </tr>
+                        <tr>
+                            <td>Total Fare</td>
+                            <td>:</td>
+                            <td><input type="" name="fare" id="fare" disabled></td>
+                        
+                        </tr>
+						<tr>
+                            <td>Payment Type</td>
+                            <td>:</td>
+                            <td>cash</td>
+                        
+                        </tr>
+                       
+                        
+                    </tbody>
+                </table></div>  </div><br>
+				<center><form name="myForm" action="CustomerTripHistory.html"  method="post">
+			  
+			  
+				<center><button type="submit" name="submit" id='button-send' class="btn btn-warning">Finish</button>
+				
+                
+              </form>
+            
+      
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="images/contact-img.png" alt=""> <br><br><br><br><br>
+			
+          </div>
+        </div>
+		
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+
+  
+        
+
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+       
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+	
+
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 2
+        }
+      }
+    });
+  </script>
+  <!-- end owl carousel script -->
+
+
+
+
+</body>
+</html>

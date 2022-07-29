@@ -1,0 +1,38 @@
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+	function viewtrip() {
+		var b_id = {
+			booking_id : sessionStorage.getItem("b_id"),
+		}
+		$.ajax({
+        type:"POST",
+        contentType: "application/json",
+        url:"http://localhost:8082/login/customer/viewTrip",
+        data: JSON.stringify(b_id),
+        dataType: "json",
+        headers:{
+            Accept: "*/*",
+            Authorization: 'Bearer ' + sessionStorage.getItem("token") 
+        },
+        success: function(result){
+            console.log(result.status)
+            if(result.status == "200"){
+                
+				window.location = "TripCompletedCustomer.html"
+                }
+        else{
+            window.location = "TripOntheWay.html"
+            }
+        },
+        error : function(result){
+            console.log("error!")
+        }
+        })
+		
+	}
+
+    viewtrip()
+</script>

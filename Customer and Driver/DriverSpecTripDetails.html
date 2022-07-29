@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>ASPAS CABS</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  
+  <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px ;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+tr:nth-child(even) {
+  background-color: #F8EFE4;
+}
+tr:hover {background-color: #ddd;}
+</style>
+  
+</head>
+
+<body class="sub_page" onload="DriverSpecTripDetails()">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              ASPAS CABS
+            </span>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="WelcomeDriver.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                
+                
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="DriverEarnings.html">Earnings</a>
+                </li>
+                
+				<li class="nav-item">
+                  <a class="nav-link" href="DriverProfile.html">profile</a>
+                </li>
+				</li>
+				 <li class="nav-item">
+                  <a class="nav-link" href="DriverTripHistory.html">Back</a>
+                </li>
+				<li class="nav-item">
+                  <a class="nav-link" href="LoginPage.html">Logout</a>
+                </li>
+				</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+   
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container" >
+        <h2>
+		Trip Details
+        </h2>
+      </div>
+	  
+	  
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5  offset-md-1">
+          
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+				
+                <table id="driver_trip">
+                    <tbody>
+					<tr>
+                            <td id="">Customer Name</td>
+                            <td>:</td>
+                            <td><input type="" name="name" id="name" disabled></td>
+                        
+						</tr>
+						<tr>
+                            <td id="">Customer Email </td>
+                            <td>:</td>
+                            <td><input type="" name="" id="email" disabled></td>
+                        
+						</tr>
+						<tr>
+                            <td id="">Vehicle Number</td>
+                            <td>:</td>
+                            <td><input type="" name="vno" id="vno" disabled></td>
+                        
+						</tr>
+					<tr>
+                            <td id="">Source</td>
+                            <td>:</td>
+                            <td><input type="" name="src" id="src" disabled></td>
+                        
+						</tr>
+					<tr>
+                            <td id="">Destination</td>
+                            <td>:</td>
+                            <td><input type="" name="dest" id="dest" disabled></td>
+                        
+						</tr>
+						<tr>
+                            <td id="">Date</td>
+                            <td>:</td>
+                            <td><input type="" name="date" id="date" disabled></td>
+                        
+                        </tr>
+                        <tr>
+                            <td id="">Total Distance</td>
+                            <td>:</td>
+                            <td><input type="" name="dist" id="dist" disabled></td>
+                        
+                        </tr>
+                        <tr>
+                            <td id="">Rate/KM</td>
+                            <td>:</td>
+                            <td><input type="" name="rate" id="rate" disabled></td>
+                        
+                        </tr>
+                        <tr>
+                            <td id="">Total Fare</td>
+                            <td>:</td>
+                            <td><input type="" name="fare" id="fare" disabled></td>
+                        
+                        </tr>
+						<tr>
+                            <td id="">Payment Type</td>
+                            <td>:</td>
+                            <td>cash</td>
+                        
+                        </tr>
+                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="images/contact-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+
+  
+        
+
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <div class="container">
+      <p>
+       
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 2
+        }
+      }
+    });
+
+    function DriverSpecTripDetails() {
+    var t_id =  {
+      id : sessionStorage.getItem("DriverMoreInfoTrip"),
+    }
+      $.ajax({
+      type:"POST",
+      contentType: "application/json",
+      url:"http://localhost:8083/login/driver/viewTrip",
+      data: JSON.stringify(t_id),
+
+      headers:{
+          Accept: "*/*",
+          Authorization: 'Bearer ' + sessionStorage.getItem("token") 
+      },
+      success: function(result){
+          console.log(result)
+          if(result.status == "200"){
+            $('#name').val(result.trip.customerName);
+            $('#email').val(result.trip.customerEmail);
+            $('#vno').val(result.trip.cabRegistrationNo);
+            $('#src').val(result.trip.source);
+            $('#dest').val(result.trip.destination);
+            $('#date').val(result.trip.tripDate);
+            $('#rate').val(result.trip.ratesPerKm);
+            $('#dist').val(result.trip.totalDistance);
+            $('#fare').val(result.trip.totalFare);
+              }
+          }
+  })
+  }
+  </script>
+  <!-- end owl carousel script -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Urotaxi</title>
+
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+   <link href="css/request.css" rel="stylesheet" />
+   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              aspas cabs
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="WelcomeDriver.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="DriverTripHistory.html"> Your Rides </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="DriverProfile.html"> Profile </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="LoginPage.html">Login</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+<script type="text/javascript" src="request.js"></script>
+    <section class="slider_section" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-7 ">
+          </div>
+		  <br>
+			<div class="card" onload="">
+                <div class="card-body">
+                 <center><h2 class="card-title">Driver request</h2></center><br>
+                  <div class="table-responsive pt-3">
+                    <div class="container">
+                      <h4></h4>
+                      <table class="table table-bordered table-hover">
+                        <thead class="table-secondary">
+                          <tr>
+                            <th scope="col">Booking Id</th>
+                            <th scope="col">source</th>
+                            <th scope="col">destination</th>
+                            <th scope="col">cabType</th>
+                            <th scope="col">cabCapacity</th>
+                            <th scope="col">customerEmail</th>
+                            
+                            <th scope="col">status</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody id="table_body">
+                         
+                          
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+           
+            
+            </div>
+          </div>
+  </div>
+  </body>
+ </html>
+ 
+<script>
+ fetch('http://localhost:8083/login/driver/getBookings',{ method: 'GET', Authorization: 'Bearer ' + sessionStorage.getItem("token")
+}).then((data)=>{
+  return data.json();/// convert to object
+ }).then((ObjectData)=>{
+ var tableData = "";
+ObjectData.bookings.map((values)=>{
+tableData += '<tr> <td>'+values.booking_id+'</td>'+
+  '<td>'+values.source+'</td>'+
+  '<td>'+values.destination+'</td>'+
+  '<td>'+values.cabType+'</td>'+
+  '<td>'+values.cabCapacity+'</td>'+
+  '<td>'+values.customerEmail+'</td>'+
+  '<td>'+values.status+'</td>'+
+  '<td> <button class = "btn btn-outline-success" onclick = "AcceptBooking('+values.booking_id+')" >ACCEPT</button></td>'+
+
+  '</tr>';
+  
+});
+document.getElementById("table_body").innerHTML=tableData;
+})
+ function AcceptBooking(id){
+  
+
+
+    var CabBookingData={
+        id:id,
+        email: sessionStorage.getItem("demail"),
+
+        }
+    console.log(JSON.stringify(CabBookingData))
+    $.ajax({
+        type:"POST",
+        contentType: "application/json",
+        url:"http://localhost:8083/login/driver/acceptBooking",
+        data: JSON.stringify(CabBookingData),
+       
+        headers:{
+           
+            Authorization: 'Bearer ' + sessionStorage.getItem("token") 
+        },
+        success: function(result){
+            console.log(result.status)
+            if(result.status == "200"){
+              alert("Booking Accepted!!")
+              sessionStorage.setItem("Booking_id",id);
+              window.location="Start_trip.html";
+                    
+                }
+            },
+            error: function(result){
+              alert("Booking not accepted!")
+            }
+    })
+}
+
+
+  
+  
+  /*
+    // Create a button element
+    const button = document.createElement('button')
+  
+    // Set the button text to 'Can you click me?'
+    button.innerText = 'Accept'
+  
+    button.id = 'mainButton'
+  
+    // Attach the "click" event to your button
+    button.addEventListener('click', () => {
+      
+    })
+  
+    document.body.appendChild(button)
+  */	
+  </script>
